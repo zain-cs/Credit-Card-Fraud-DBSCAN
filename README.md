@@ -4,11 +4,12 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Scikit-learn](https://img.shields.io/badge/scikit--learn-1.0+-orange.svg)](https://scikit-learn.org/)
 
-An unsupervised machine learning approach to detect fraudulent credit card transactions using DBSCAN (Density-Based Spatial Clustering of Applications with Noise) clustering algorithm.
+An unsupervised machine learning approach to detect fraudulent credit card transactions using DBSCAN (Density-Based Spatial Clustering of Applications with Noise) clustering algorithm — no labeled training data required.
 
 ## 📋 Table of Contents
 
 - [Overview](#overview)
+- [Demo](#demo)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -30,6 +31,12 @@ This project implements an **unsupervised anomaly detection system** for identif
 - **Handles varying density** - Can detect fraud patterns of different shapes
 - **Robust to noise** - Doesn't force every point into a cluster
 
+## 🖼️ Demo
+
+<!-- Add 1-2 screenshots from your notebook here, e.g.: -->
+<!-- ![PCA cluster visualization](images/pca_plot.png) -->
+<!-- ![Cluster distribution](images/cluster_distribution.png) -->
+
 ## ✨ Features
 
 - 📊 **Automated Data Processing** - Handles missing values and infinite entries
@@ -37,7 +44,7 @@ This project implements an **unsupervised anomaly detection system** for identif
 - 🎯 **DBSCAN Clustering** - Density-based anomaly detection
 - 📈 **PCA Visualization** - 2D projection of high-dimensional data
 - 🧩 **Silhouette Score** - Quality metric for cluster separation
-- 🎨 **Interactive Plots** - Visual representation of clusters and outliers
+- 🎨 **Plots** - Visual representation of clusters and outliers
 
 ## 🚀 Installation
 
@@ -48,54 +55,35 @@ This project implements an **unsupervised anomaly detection system** for identif
 
 ### Dependencies
 
-```bash
 pip install pandas numpy matplotlib scikit-learn
-```
 
 ### Clone Repository
 
-```bash
-git clone https://github.com/zain-cs/credit-card-fraud-dbscan.git
-cd credit-card-fraud-dbscan
-```
+git clone https://github.com/zain-cs/Credit-Card-Fraud-DBSCAN.git
+cd Credit-Card-Fraud-DBSCAN
 
 ## 💻 Usage
 
 ### Running in Google Colab
 
-1. Upload the notebook to Google Colab
+1. Upload `DBSCAN_clustering.ipynb` to Google Colab
 2. Run all cells sequentially
 3. Upload your credit card transaction CSV when prompted
 4. View results and visualizations
 
 ### Running Locally
 
-```python
-# Import required libraries
-import pandas as pd
-import numpy as np
-from sklearn.cluster import DBSCAN
-from sklearn.preprocessing import StandardScaler
+1. Open `DBSCAN_clustering.ipynb` in Jupyter Notebook/Lab
+2. Place your dataset CSV in the same directory (or update the file path in the notebook)
+3. Run all cells
 
-# Load your dataset
-df = pd.read_csv('your_credit_card_data.csv')
+### Repository Structure
 
-# Follow the steps in the main script
-# (See credit_card_fraud_dbscan.py)
-```
-
-### Code Structure
-
-```
-credit-card-fraud-dbscan/
+Credit-Card-Fraud-DBSCAN/
 │
-├── credit_card_fraud_dbscan.py    # Main clustering script
-├── README.md                       # This file
-├── requirements.txt                # Python dependencies
-├── LICENSE                         # MIT License
-└── examples/
-    └── sample_output.png           # Example visualization
-```
+├── DBSCAN_clustering.ipynb    # Main notebook: preprocessing, clustering, evaluation
+├── README.md                   # This file
+└── LICENSE                     # MIT License
 
 ## 📊 Dataset
 
@@ -112,11 +100,9 @@ This project works with credit card transaction datasets containing numerical fe
 
 ### Data Format
 
-```csv
 Time,V1,V2,V3,...,V28,Amount,Class
 0,-1.359807134,-0.072781,...,149.62,0
 1,-1.358354062,1.191857,...,2.69,0
-```
 
 ## 🔬 Methodology
 
@@ -126,9 +112,9 @@ Time,V1,V2,V3,...,V28,Amount,Class
 - Standardize features (mean=0, std=1)
 
 ### 2. DBSCAN Clustering
-```python
+
 DBSCAN(eps=1.5, min_samples=5)
-```
+
 - **eps**: Maximum distance between neighbors (tunable)
 - **min_samples**: Minimum points to form a dense region
 
@@ -144,14 +130,11 @@ DBSCAN(eps=1.5, min_samples=5)
 
 ## 📈 Results
 
-### Expected Output
-
-```
+<!-- Replace with your actual output from the notebook -->
 📊 Cluster Distribution:
  0     280000
 -1      1500
  1       500
-```
 
 - **Cluster 0**: Normal transactions (majority)
 - **Cluster -1**: Outliers (potential fraud)
@@ -163,24 +146,15 @@ DBSCAN(eps=1.5, min_samples=5)
 🟡 **Medium Priority**: Small, isolated clusters  
 🟢 **Low Priority**: Large, dense clusters
 
-### Sample Visualization
-
-The PCA plot shows:
-- **Dense regions** = Normal transaction clusters
-- **Scattered points** = Outliers/potential fraud
-- **Color coding** = Different cluster assignments
-
 ## ⚙️ Hyperparameter Tuning
 
 Adjust DBSCAN parameters for your dataset:
 
-```python
 # More sensitive to outliers
 DBSCAN(eps=0.5, min_samples=3)
 
 # More conservative
 DBSCAN(eps=2.0, min_samples=10)
-```
 
 **Guidelines:**
 - **Smaller eps** → More outliers detected (higher sensitivity)
@@ -209,7 +183,6 @@ GitHub: [@zain-cs](https://github.com/zain-cs)
 
 - [Scikit-learn](https://scikit-learn.org/) for machine learning tools
 - [Kaggle](https://www.kaggle.com/) for providing datasets
-- Credit card fraud detection research community
 
 ## 📚 References
 
@@ -220,9 +193,3 @@ GitHub: [@zain-cs](https://github.com/zain-cs)
 ---
 
 **⭐ If you found this project helpful, please consider giving it a star!**
-
----
-
-### 🔄 Recent Updates
-
-- **v1.0.0** (2024-12-22): Initial release with DBSCAN clustering implementation
